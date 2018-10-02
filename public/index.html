@@ -23,11 +23,12 @@ LICENSE: MIT
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <html lang="es">
     <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>
     <div class="container">  
       
-      <form id="loginForm" action="#">
+      <form id="loginForm" action="POST">
         <center><a href="http://developers.meraki.com"><img src="./img/logo.png" width="50%"/></a></center>
         <br>
         <fieldset>
@@ -41,7 +42,7 @@ LICENSE: MIT
         </fieldset>
 		 <input type="checkbox" name="terminos" value=""> Estoy de acuerdo con los terminos y condiciones del servicio<br>
         <fieldset>
-          <button type="submit" >Acceder a Internet</button>
+          <button type="submit">Acceder a Internet</button>
         </fieldset>
 		
         <!--<p class="copyright">Sample by <a href="http://www.InternetOfLEGO.com" target="_blank" title="Internet of LEGO">Internet of LEGO</a></p>-->
@@ -54,6 +55,21 @@ LICENSE: MIT
     <p><label>Client IP: </label><label id="clientIP"></label></p>
     <p><label>Client MAC: </label><label id="clientMAC"></label></p>
     <p><label>Access Point MAC: </label><label id="nodeMAC"></label></p>
-        
+     <script>
+    $('#loginForm').one('submit',function(){
+        var inputq1 = encodeURIComponent($('#name').val());
+        var inputq2 = encodeURIComponent($('#email').val());
+		var inputq3 = encodeURIComponent($('#company').val());
+        var q1ID = "entry.1415186773";
+        var q2ID = "entry.294444343";
+		var q3ID = "entry.1432931280";
+        var baseURL = 'https://docs.google.com/forms/d/e/1FAIpQLSf8G2v3DM1Dgm4PEU_L1-O2CCPEcpf0cEp2FhmM9Ynr2PNWUA/formResponse?';
+        var submitRef = '&submit=Submit';
+        var submitURL = (baseURL + q1ID + "=" + inputq1 + "&" + q2ID + "=" + inputq2 + "&" + q3ID + "=" + inputq3 + submitRef);
+        console.log(submitURL);
+        $(this)[0].action=submitURL;
+        <!--$('#input-feedback').text('Datos Enviados!');-->
+    });
+</script>   
     <script src="./js/meraki.js"></script>
 </html>
