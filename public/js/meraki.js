@@ -44,7 +44,7 @@ function login(){
     var data = {};
     data.name = document.getElementById("name").value;
     data.email = document.getElementById("email").value;
-    alert("Hello "+data.name +"\n"+"Thanks for providing your email: "+data.email);
+    alert("Hola "+data.name +"\n"+"Ya puedes disfrutar de nuestro servicio!: ");
     console.log("Storing data to db...", data);
 
     // Complete Login
