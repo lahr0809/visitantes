@@ -5,7 +5,22 @@
 	
 	<script src="./js/fire.js"></script>
 	<script>
-		 var config = {
+		var base_grant_url = decodeURIComponent(GetURLParameter("base_grant_url"));
+var user_continue_url = decodeURIComponent(GetURLParameter("user_continue_url"));
+var node_mac = GetURLParameter("node_mac");
+var client_ip = GetURLParameter("client_ip");
+var client_mac = GetURLParameter("client_mac");
+
+// Print Meraki provided paramaters for Debugging State
+console.log("user_continue_url: "+user_continue_url);
+console.log("client_ip: "+client_ip);
+document.getElementById("baseGrantURL").innerHTML = base_grant_url;
+document.getElementById("userContinueURL").innerHTML = user_continue_url;
+document.getElementById("clientIP").innerHTML = client_ip;
+document.getElementById("clientMAC").innerHTML = client_mac;
+document.getElementById("nodeMAC").innerHTML = node_mac;
+		
+		var config = {
     apiKey: "AIzaSyBZZ5MeNwP_mGa4jD1w5OXGaPbrgNO6R-g",
     authDomain: "invitados-7fe3d.firebaseapp.com",
     databaseURL: "https://invitados-7fe3d.firebaseio.com",
@@ -45,20 +60,7 @@
     // Complete Login
     authUser();
 	}
-var base_grant_url = decodeURIComponent(GetURLParameter("base_grant_url"));
-var user_continue_url = decodeURIComponent(GetURLParameter("user_continue_url"));
-var node_mac = GetURLParameter("node_mac");
-var client_ip = GetURLParameter("client_ip");
-var client_mac = GetURLParameter("client_mac");
 
-// Print Meraki provided paramaters for Debugging State
-console.log("user_continue_url: "+user_continue_url);
-console.log("client_ip: "+client_ip);
-document.getElementById("baseGrantURL").innerHTML = base_grant_url;
-document.getElementById("userContinueURL").innerHTML = user_continue_url;
-document.getElementById("clientIP").innerHTML = client_ip;
-document.getElementById("clientMAC").innerHTML = client_mac;
-document.getElementById("nodeMAC").innerHTML = node_mac;
 
  
 function authUser(){
