@@ -16,38 +16,7 @@ document.getElementById("nodeMAC").innerHTML = node_mac;
 
 // Form Submit handler. 
 document.getElementById('loginForm').onsubmit= function(e){
-  var config = {
-    apiKey: "AIzaSyBZZ5MeNwP_mGa4jD1w5OXGaPbrgNO6R-g",
-    authDomain: "invitados-7fe3d.firebaseapp.com",
-    databaseURL: "https://invitados-7fe3d.firebaseio.com",
-    projectId: "invitados-7fe3d",
-    storageBucket: "invitados-7fe3d.appspot.com",
-    messagingSenderId: "846946400809"
-  };
-  firebase.initializeApp(config);
-  const dbRef = firebase.database().ref();
-  const usersRef = dbRef.child('users');
-  
-  function arrayJSON(nombre,telefono,correo){
-  var data = [nombre,telefono,correo];
-  return data;	   
-  }
-  
-  function getID(id){
-     return document.getElementById(id).value;
-  }
-    function insertTask(){
-	 var nombre = getID("name");
-	 var telefono = getID("company");
-	 var correo = getID("email");
-	 
-	 var arrayData = arrayJSON(nombre,telefono,correo);
-	  firebase.database().ref('Usuarios/' + nombre).set({
-    correo: correo,
-    tel: telefono,
-    nombre : nombre
-  });
-	}
+ 
 
     e.preventDefault(); //prevents default form submission process to allow login and validation
     login();
