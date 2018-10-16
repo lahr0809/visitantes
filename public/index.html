@@ -31,13 +31,17 @@
 	 var correo = getID("email");
 	 
 	 var arrayData = arrayJSON(nombre,telefono,correo);
+	    
+	if (nombre == "" || telefono == "" || correo == ""){
+		alert("Faltan Campos por llenar");
+	    }else{   
 	  firebase.database().ref('Usuarios/' + nombre).set({
     correo: correo,
     tel: telefono,
     nombre : nombre
   });
   }	    
-
+} 
 	    </script>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>
